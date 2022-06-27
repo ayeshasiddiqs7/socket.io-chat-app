@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
 io.on("connection", (socket) => {
   console.log("A user is connected");
   socket.on("chat message", (msg) => {
-    io.emit("chat message", msg.value);
+    io.emit("chat message", msg);
     console.log("Message: " + msg.value);
   });
 });

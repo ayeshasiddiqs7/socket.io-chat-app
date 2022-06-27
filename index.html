@@ -95,9 +95,7 @@
 
       form.addEventListener("submit", function (e) {
         e.preventDefault();
-        console.log("e...", e);
         if (input.value) {
-          console.log("input...", input);
           socket.emit("chat message", {
             value: input.value,
             user: userIs,
@@ -121,7 +119,9 @@
       socket.on("chat message", function (msg) {
         var item = document.createElement("li");
         item.textContent =
-          msg.user === userIs ? "Me:" + msg.value : msg.user + ":" + msg.value;
+          msg.user === userIs
+            ? "Me: " + msg.value
+            : msg.user + ": " + msg.value;
         messages.appendChild(item);
         window.scrollTo(0, document.body.scrollHeight);
       });
