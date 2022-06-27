@@ -13,11 +13,11 @@ app.get("/", (req, res) => {
 io.on("connection", (socket) => {
   console.log("A user is connected");
   socket.on("chat message", (msg) => {
-    io.emit("chat message", msg);
-    console.log("Message: " + msg);
+    io.emit("chat message", msg.value);
+    console.log("Message: " + msg.value);
   });
 });
 
-server.listen(3000, () => {
-  console.log("Listening on port:3000");
+server.listen(5000, () => {
+  console.log("Listening on port:5000");
 });
